@@ -6,6 +6,14 @@ class window.Hand extends Backbone.Collection
 
   hit: -> @add(@deck.pop()).last()
 
+  stand: -> @trigger("playerStand")
+    # trigger 
+  # @get 'playerHand'
+  # get player score
+  # get dealer score
+  # compare scores, winner is closer to 21 without going over
+  # start new round
+
   scores: ->
     # The scores are an array of potential scores.
     # Usually, that array contains one element. That is the only score.
