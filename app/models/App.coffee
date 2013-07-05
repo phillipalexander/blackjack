@@ -10,8 +10,12 @@ class window.App extends Backbone.Model
       console.log(@)
       playerScore = @get('playerHand').scores()[0]
       dealerScore = @get('dealerHand').scores()[0]
-      if playerScore > dealerScore
+      if playerScore > 21
+        alert "You busted mother fucker. Don't test me bro."
+      else if playerScore > dealerScore
         alert "You Win!"
+      else
+        alert "You lose!"
 
   # @get 'playerHand'
   # get player score
