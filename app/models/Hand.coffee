@@ -7,11 +7,10 @@ class window.Hand extends Backbone.Collection
 
   hit: ->
     @add(@deck.pop()).last()
-    if @scores()[0] > 21
-      @trigger "playerStand", @
-
+    @trigger "playerHit", @
+    
   stand: -> @trigger "playerStand", @
-  
+
   scores: ->
     # The scores are an array of potential scores.
     # Usually, that array contains one element. That is the only score.
