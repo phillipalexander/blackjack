@@ -9,6 +9,7 @@ class window.ChipView extends Backbone.View
     <button class="bet-25">Bet 25</button>
     <button class="bet-50">Bet 50</button>
     <button class="bet-100">Bet 100</button>
+    <button class="clear">Clear Bet</button>
     </br>
     <div class="stack">Stack: </div>
     </br>
@@ -34,6 +35,9 @@ class window.ChipView extends Backbone.View
       @trigger 'bet'
     "click .bet-100": ->
       @currentBet += 100
+      @trigger 'bet'
+    "click .clear": ->
+      @currentBet = 0
       @trigger 'bet'
 
   initialize: ->

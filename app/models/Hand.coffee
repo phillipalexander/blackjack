@@ -8,7 +8,7 @@ class window.Hand extends Backbone.Collection
   hit: ->
     @add(@deck.pop()).last()
     @trigger "playerHit", @
-    
+
   stand: -> @trigger "playerStand", @
 
   scores: ->

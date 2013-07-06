@@ -33,8 +33,10 @@ class window.App extends Backbone.Model
 
   youLose: ->
     @get('stack').set('chipStack', @currentStack - @currentBet)
+    @get('stack').set('curBet', 0)
     alert "You lose!"
 
   youWin: ->
     @get('stack').set('chipStack', @currentStack + @currentBet)
+    @get('stack').set('curBet', 0)
     alert "You Win!"
