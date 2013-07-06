@@ -2,8 +2,7 @@
 class window.App extends Backbone.Model
 
   initialize: ->
-    @set 'chipStack', 2000
-    # debugger;
+    @set 'stack', new Stack()
     @newGame()
 
   newGame: ->
@@ -20,10 +19,22 @@ class window.App extends Backbone.Model
     @get('dealerHand').hit() while @get('dealerHand').scores()[0] < 16
     playerScore = @get('playerHand').scores()[0]
     dealerScore = @get('dealerHand').scores()[0]
-    if playerScore > 21
-      alert "You busted mother fucker. Don't test me bro."
-    else if dealerScore > 21 or playerScore > dealerScore
-      alert "You Win!"
+    @currentStack = @get('stack').get('chipStack')
+    @currentBet = @get('stack').get('curBet')
+    if dealerScore > 21 and playerScore < 22
+      @youWin()
+    else if playerScore > 21
+      @youLose()
+    else if playerScore > dealerScore
+      @youWin()
     else
-      alert "You lose!"
+      @youLose()
     @newGame()
+
+  youLose: ->
+    @get('stack').set('chipStack', @currentStack - @currentBet)
+    alert "You lose!"
+
+  youWin: ->
+    @get('stack').set('chipStack', @currentStack + @currentBet)
+    alert "You Win!"

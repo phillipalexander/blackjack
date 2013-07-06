@@ -20,4 +20,4 @@ class window.AppView extends Backbone.View
     @$el.html @template()
     @$('.player-hand-container').html new HandView(collection: @model.get 'playerHand').el
     @$('.dealer-hand-container').html new HandView(collection: @model.get 'dealerHand').el
-    @$('.chip-container').html new ChipView(model: @model).el
+    @$('.chip-container').html new ChipView(model: @model.get 'stack').el

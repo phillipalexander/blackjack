@@ -8,7 +8,6 @@ describe 'deck', ->
 
   describe 'hit', ->
     it "should give the last card from the deck", ->
-      # debugger;
       expect(deck.length).toBe 50
       oldLastCard = deck.last()
       hand.hit()
