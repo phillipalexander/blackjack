@@ -3,6 +3,7 @@ class window.Hand extends Backbone.Collection
   model: Card
 
   initialize: (array, @deck, @isDealer) ->
+    console.log('newHand')
 
   hit: ->
     @add(@deck.pop()).last()
@@ -10,8 +11,7 @@ class window.Hand extends Backbone.Collection
       @trigger "playerStand", @
 
   stand: -> @trigger "playerStand", @
-    # trigger
-
+  
   scores: ->
     # The scores are an array of potential scores.
     # Usually, that array contains one element. That is the only score.

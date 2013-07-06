@@ -6,8 +6,6 @@ class window.App extends Backbone.Model
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
     @get('playerHand').on 'playerStand', =>
-      console.log(arguments)
-      console.log(@)
       playerScore = @get('playerHand').scores()[0]
       dealerScore = @get('dealerHand').scores()[0]
       if playerScore > 21
@@ -16,9 +14,7 @@ class window.App extends Backbone.Model
         alert "You Win!"
       else
         alert "You lose!"
+      @set 'playerHand', deck.dealPlayer()
+      @set 'dealerHand', deck.dealDealer()
+      @trigger 'reset'
 
-  # @get 'playerHand'
-  # get player score
-  # get dealer score
-  # compare scores, winner is closer to 21 without going over
-  # start new round
