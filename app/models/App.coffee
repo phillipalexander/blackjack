@@ -2,6 +2,9 @@
 class window.App extends Backbone.Model
 
   initialize: ->
+    @newHand()
+
+  newHand: ->
     @set 'deck', deck = new Deck()
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
@@ -14,7 +17,9 @@ class window.App extends Backbone.Model
         alert "You Win!"
       else
         alert "You lose!"
-      @set 'playerHand', deck.dealPlayer()
-      @set 'dealerHand', deck.dealDealer()
-      @trigger 'reset'
+      # @set 'deck', deck = new Deck()
+      # @set 'playerHand', deck.dealPlayer()
+      # @set 'dealerHand', deck.dealDealer()
+      @newHand()
+      # @trigger 'reset'
 
