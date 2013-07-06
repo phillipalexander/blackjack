@@ -9,6 +9,10 @@ class window.App extends Backbone.Model
     @set 'playerHand', deck.dealPlayer()
     @set 'dealerHand', deck.dealDealer()
     @get('playerHand').on 'playerStand', =>
+      # find dealer score
+      @get('dealerHand').hit() while @get('dealerHand').scores()[0] < 16
+        # if less than 16, hit
+          # repeat until dealerScore > 16
       playerScore = @get('playerHand').scores()[0]
       dealerScore = @get('dealerHand').scores()[0]
       if playerScore > 21
@@ -17,9 +21,5 @@ class window.App extends Backbone.Model
         alert "You Win!"
       else
         alert "You lose!"
-      # @set 'deck', deck = new Deck()
-      # @set 'playerHand', deck.dealPlayer()
-      # @set 'dealerHand', deck.dealDealer()
       @newHand()
-      # @trigger 'reset'
 
