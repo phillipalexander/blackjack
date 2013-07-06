@@ -2,6 +2,8 @@
 class window.App extends Backbone.Model
 
   initialize: ->
+    @set 'chipStack', 2000
+    # debugger;
     @newGame()
 
   newGame: ->
