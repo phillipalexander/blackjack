@@ -16,6 +16,8 @@ class window.App extends Backbone.Model
       @endGame()
 
   endGame: ->
+    # debugger
+    @get('dealerHand').models[0].flip()
     @get('dealerHand').hit() while @get('dealerHand').scores()[0] < 16
     playerScore = @get('playerHand').scores()[0]
     dealerScore = @get('dealerHand').scores()[0]

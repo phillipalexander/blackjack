@@ -1,21 +1,28 @@
 class window.AppView extends Backbone.View
 
   template: _.template '
-    <section class="padding bck theme features">
+    <section class="padding bck theme features" style="height: 510px;">
       <div class="row text center book">
         <div class="column_10 offset_1">
-          <h1 class="color default">Cards go here</h1>
-          <div class="dealer-hand-container"><span class="playingCards"><ul class="table"></ul></span></div>
-          <div class="player-hand-container"><span class="playingCards"><ul class="table"></ul></span></div>
+          <h1 class="color default">Dealer Wins All Ties</h1>
         </div>
+
+      <div class="column_4 radius padding-top padding-bottom on-right">
+          <div class="dealer-hand-container"><span class="playingCards"><ul class="table"></ul></span></div>
+        </div>
+      <div class="column_4 radius padding-top padding-bottom on-left">
+        <div class="player-hand-container"><span class="playingCards"><ul class="table"></ul></span></div>
+      </div>
       </div>
     </section>
 
     <section class="padding bck dark">
       <div class="row text center book margin-bottom">
         <div class="column_10 offset_1">
-          <h1 class="color theme">Buttons go down here</h1>
-          <button class="hit-button">Hit</button> <button class="stand-button">Stand</button>
+          <h1 class="color theme">Place Your Bets</h1>
+          <button class="hit-button alert">Hit</button> <button class="stand-button alert">Stand</button>
+            </br>
+            </br>
           <div class="chip-container"></div>
         </div>
       </div>

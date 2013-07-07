@@ -19,4 +19,4 @@ class window.CardView extends Backbone.View
     @$el.children().detach().end().html
     @$el.html @template @model.attributes
     # debugger
-    @$el.children().children()[0].className = 'card back' unless @model.get 'revealed'
+    @$el.children().children()[0].className = 'card back covered' unless @model.get 'revealed'

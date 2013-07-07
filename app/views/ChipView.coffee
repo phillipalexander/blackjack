@@ -11,9 +11,9 @@ class window.ChipView extends Backbone.View
     <button class="bet-100">Bet 100</button>
     <button class="clear">Clear Bet</button>
     </br>
-    <div class="stack">Stack: </div>
+    <div class="stack"><h3><strong>Stack: <strong></h3></div>
     </br>
-    <div class="bet">Bet: </div>'
+    <div class="bet"><h3><strong>Bet: </strong></h3></div>'
 
   events:
     # "click .hit-button": -> @model.get('playerHand').hit()
