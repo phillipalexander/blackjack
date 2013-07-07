@@ -2,7 +2,7 @@
 class window.App extends Backbone.Model
 
   initialize: ->
-    @set 'stack', new Stack()
+    @set 'stack', new Stack(model: @)
     @newGame()
 
   newGame: ->

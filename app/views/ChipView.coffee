@@ -9,6 +9,7 @@ class window.ChipView extends Backbone.View
     <button class="bet-25">Bet 25</button>
     <button class="bet-50">Bet 50</button>
     <button class="bet-100">Bet 100</button>
+    <button class="set_bet">Set Bet</button>
     <button class="clear">Clear Bet</button>
     </br>
     <div class="stack"><h3><strong>Stack: <strong></h3></div>
@@ -19,26 +20,34 @@ class window.ChipView extends Backbone.View
     # "click .hit-button": -> @model.get('playerHand').hit()
     # "click .stand-button": -> @model.get('playerHand').stand()
     "click .bet-1": ->
-      @currentBet += 1
+      @attemptBet(1)
       @trigger 'bet'
     "click .bet-5": ->
-      @currentBet += 5
+      @attemptBet(5)
       @trigger 'bet'
     "click .bet-10": ->
-      @currentBet += 10
+      @attemptBet(10)
       @trigger 'bet'
     "click .bet-25": ->
-      @currentBet += 25
+      @attemptBet(25)
       @trigger 'bet'
     "click .bet-50": ->
-      @currentBet += 50
+      @attemptBet(50)
       @trigger 'bet'
     "click .bet-100": ->
-      @currentBet += 100
+      @attemptBet(100)
       @trigger 'bet'
+    "click .set_bet": ->
+      alert "set bet"
+      @trigger 'bet_set'
     "click .clear": ->
       @currentBet = 0
       @trigger 'bet'
+  attemptBet: (amount) ->
+    if @currentStack > @currentBet + amount
+      @currentBet += amount
+    else
+      alert "You don't have enough money"
 
   initialize: ->
     @currentStack = @model.get('chipStack')
