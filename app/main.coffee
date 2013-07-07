@@ -1,1 +1,1 @@
-new AppView(model: new App()).$el.appendTo '#container'
+new AppView(model: new App()).$el.appendTo 'body #container'
